@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-cream: #F5F0E8;
+  --color-stone: #E2D9C8;
+  --color-moss: #3D5240;
+  --color-rust: #B85C38;
+  --color-ink: #1A1A18;
+  --color-muted: #7A7060;
+  --color-pale: #FAF7F2;
+  --color-gold: #C4963A;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-badge-dog-bg: #E8EFE6;
+  --color-badge-dog-text: #3D5240;
+  --color-badge-togo-bg: #FDF2EC;
+  --color-badge-togo-text: #B85C38;
+  --color-badge-dm-bg: #FEF8EC;
+  --color-badge-dm-text: #C4963A;
+  --color-badge-jp-bg: #ECEEF8;
+  --color-badge-jp-text: #4A5580;
+  --color-badge-hot-bg: #B85C38;
+  --color-badge-hot-text: #ffffff;
+  --color-badge-free-bg: #3D5240;
+  --color-badge-free-text: #ffffff;
+  --color-badge-delivery-bg: #ECF4FD;
+  --color-badge-delivery-text: #2E6DA4;
+
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", "Noto Sans JP", system-ui, -apple-system, sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  background: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.guide-viewer {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--color-cream);
+  min-height: 100dvh;
+}
+
+.guide-nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.section-alt {
+  background: var(--color-pale);
+}
+
+.card-thumb {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 0.625rem;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.route-line {
+  position: absolute;
+  left: 11px;
+  top: 28px;
+  bottom: 0;
+  width: 2px;
+  background: var(--color-stone);
 }

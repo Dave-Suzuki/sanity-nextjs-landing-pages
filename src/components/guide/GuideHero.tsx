@@ -8,8 +8,8 @@ export function GuideHero({ guide }: Props) {
   const t = guide.color_theme;
 
   return (
-    <div
-      className="relative overflow-hidden px-6 pb-16 pt-20 text-center md:px-10 md:pb-16 md:pt-20"
+    <header
+      className="relative overflow-hidden px-6 pb-16 pt-20 text-center"
       style={{ background: t.moss, color: t.cream }}
     >
       {/* Radial glow */}
@@ -28,17 +28,21 @@ export function GuideHero({ guide }: Props) {
       </p>
 
       <h1 className="relative font-display text-[clamp(3rem,7vw,5.5rem)] font-normal leading-[1.05] tracking-tight">
-        {guide.title.split(",").map((part, i) =>
-          i === 0 ? (
-            <span key={i}>
-              {part},
-              <br />
-            </span>
-          ) : (
-            <em key={i} className="italic" style={{ color: t.gold }}>
-              {part.trim()}
-            </em>
+        {guide.title.includes(",") ? (
+          guide.title.split(",").map((part, i) =>
+            i === 0 ? (
+              <span key={i}>
+                {part},
+                <br />
+              </span>
+            ) : (
+              <em key={i} className="italic" style={{ color: t.gold }}>
+                {part.trim()}
+              </em>
+            )
           )
+        ) : (
+          <span>{guide.title}</span>
         )}
       </h1>
 
@@ -59,6 +63,6 @@ export function GuideHero({ guide }: Props) {
           ))}
         </div>
       )}
-    </div>
+    </header>
   );
 }

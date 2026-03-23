@@ -10,6 +10,8 @@ export interface Guide {
   created_at: string;
   updated_at: string;
   sections?: Section[];
+  notices?: Notice[];
+  footer_text?: string | null;
 }
 
 export interface ColorTheme {
@@ -34,13 +36,23 @@ export const DEFAULT_THEME: ColorTheme = {
   gold: "#C4963A",
 };
 
+export interface Notice {
+  emoji: string;
+  title: string;
+  text: string;
+}
+
 export type SectionType = "cards" | "events" | "route" | "schedule";
 
 export interface Section {
   id: string;
   guide_id: string;
   title: string;
+  section_number: string | null;
+  nav_label: string | null;
+  anchor: string | null;
   section_type: SectionType;
+  bg_alt: boolean;
   sort_order: number;
   subsections?: Subsection[];
   events?: GuideEvent[];
@@ -62,6 +74,7 @@ export interface Spot {
   name: string;
   description: string | null;
   image_url: string | null;
+  fallback_emoji: string;
   google_maps_query: string | null;
   sort_order: number;
   badges?: SpotBadge[];
